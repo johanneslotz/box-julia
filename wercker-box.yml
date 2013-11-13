@@ -1,17 +1,33 @@
 name: julia
-version: 0.0.0
+version: 0.0.1
 inherits: wercker/ubuntu12.04-webessentials@0.0.3
-type: service
+type: main
 platform: ubuntu@12.04
 description: wercker box for julia high performance programming language
 keywords:
   - julia
   - ubuntu
-  - high performance programming language
 packages:
   - julia@0.2
 script: |
-  sudo add-apt-repository ppa:staticfloat/julia-deps
-  sudo add-apt-repository ppa:staticfloat/julianightlies
-  sudo apt-get update
-  sudo apt-get install julia
+  sudo add-apt-repository ppa:staticfloat/julia-deps -y
+  sudo add-apt-repository ppa:staticfloat/julianightlies -y
+  sudo apt-get update -y
+  sudo apt-get install julia -y
+default-build:
+  julia:
+    priority : 50
+    detect:
+      - default: true
+    text-to-append: |
+      # Build defination
+      build:
+        # The steps that will be executed on build
+        steps:
+
+          # A custom script step
+          - script:
+              name: echo julia information
+              code: |
+                echo "julia version $(julia --version) running"
+
