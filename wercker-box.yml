@@ -20,11 +20,10 @@ default-build:
     detect:
       - default: true
     text-to-append: |
-      # Build defination
+      # Build definition
       build:
         # The steps that will be executed on build
         steps:
-
           # A custom script step
           - script:
               name: echo julia information
