@@ -1,0 +1,16 @@
+name: julia
+version: 0.0.0
+inherits: wercker/ubuntu12.04-webessentials@0.0.3
+type: service
+platform: ubuntu@12.04
+description: wercker box for julia high performance programming language
+keywords:
+  - julia
+  - ubuntu
+  - high performance programming language
+packages:
+  - julia@0.2
+script: |
+   deb http://ppa.launchpad.net/staticfloat/julianightlies/ubuntu precise main 
+   deb-src http://ppa.launchpad.net/staticfloat/julianightlies/ubuntu precise main 
+   apt-get install julia
