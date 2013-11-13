@@ -11,6 +11,7 @@ keywords:
 packages:
   - julia@0.2
 script: |
-   deb http://ppa.launchpad.net/staticfloat/julianightlies/ubuntu precise main 
-   deb-src http://ppa.launchpad.net/staticfloat/julianightlies/ubuntu precise main 
-   apt-get install julia
+  sudo add-apt-repository ppa:staticfloat/julia-deps
+  sudo add-apt-repository ppa:staticfloat/julianightlies
+  sudo apt-get update
+  sudo apt-get install julia
